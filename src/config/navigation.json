@@ -4,10 +4,6 @@
     "label": "About"
   },
   {
-    "href": "/access",
-    "label": "Access"
-  },
-  {
     "href": "/contact",
     "label": "Contact"
   }
