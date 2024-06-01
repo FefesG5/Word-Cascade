@@ -4,6 +4,10 @@
     "label": "About"
   },
   {
+    "href": "/signin",
+    "label": "Sign In"
+  },
+  {
     "href": "/contact",
     "label": "Contact"
   }
