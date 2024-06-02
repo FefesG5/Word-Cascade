@@ -1,31 +1,13 @@
-import { useState } from "react";
+// components/SignOutButton.tsx
 import { useAuth } from "@/contexts/AuthContext";
-import { useRouter } from "next/router";
 
 const SignOutButton = () => {
-  const [message, setMessage] = useState("");
   const { signOut } = useAuth();
-  const router = useRouter();
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-      setMessage("You have successfully signed out.");
-      router.push("/signin");
-    } catch (error) {
-      if (error instanceof Error) {
-        setMessage(error.message);
-      } else {
-        setMessage("An unknown error occurred.");
-      }
-    }
-  };
 
   return (
-    <div>
-      <button onClick={handleSignOut}>Sign Out</button>
-      {message && <p>{message}</p>}
-    </div>
+    <button onClick={signOut} className="px-4 py-2 bg-red-600 text-white rounded">
+      Sign Out
+    </button>
   );
 };
 
