@@ -13,35 +13,26 @@ const AuthForm = ({ mode }: AuthFormProps) => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("student");
-  const [secret, setSecret] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (mode === "signUp" && password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
     try {
       if (mode === "signUp") {
-        // Check the secret code
-        if (secret !== process.env.NEXT_PUBLIC_SIGNUP_SECRET) {
-          setError("Unauthorized access. Incorrect secret code.");
-          return;
-        }
-
-        await signUp(email, password, role);
+        await signUp(email, password);
         alert("Sign up successful");
       } else {
         await signIn(email, password);
         console.log("You are successfully signed in");
       }
 
-      // Redirect based on role
-      if (role === "student") {
-        router.push("/dashboard/student");
-      } else if (role === "teacher") {
-        router.push("/dashboard/teacher");
-      } else {
-        router.push("/dashboard");
-      }
+      // Redirect to dashboard
+      router.push("/dashboard");
     } catch (error) {
       if (error instanceof Error) setError(error.message);
       else setError("An unknown error occurred");
@@ -88,41 +79,22 @@ const AuthForm = ({ mode }: AuthFormProps) => {
             />
           </div>
           {mode === "signUp" && (
-            <>
-              <div>
-                <label
-                  htmlFor="role"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Role
-                </label>
-                <select
-                  id="role"
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                >
-                  <option value="student">Student</option>
-                  <option value="teacher">Teacher</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="secret"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  TAK Code
-                </label>
-                <input
-                  type="text"
-                  id="secret"
-                  value={secret}
-                  onChange={(e) => setSecret(e.target.value)}
-                  required
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                />
-              </div>
-            </>
+            <div>
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
           )}
           <div>
             <button
@@ -139,21 +111,15 @@ const AuthForm = ({ mode }: AuthFormProps) => {
         {mode === "signIn" ? (
           <p className="mt-2 text-center text-sm text-gray-600">
             Don&apos;t have an account?{" "}
-            <Link
-              href="/signup"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              Sign up for free
+            <Link href="/signup" passHref>
+              <span className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">Sign up for free</span>
             </Link>
           </p>
         ) : (
           <p className="mt-2 text-center text-sm text-gray-600">
             Already have an account?{" "}
-            <Link
-              href="/signin"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              Sign in
+            <Link href="/signin" passHref>
+              <span className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">Sign in</span>
             </Link>
           </p>
         )}
