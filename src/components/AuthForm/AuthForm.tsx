@@ -97,14 +97,14 @@ const AuthForm = ({ mode }: AuthFormProps) => {
         {mode === "signIn" ? (
           <p className={styles.link}>
             Don&apos;t have an account?{" "}
-            <Link href="/signup" passHref>
+            <Link href="/signup" passHref className={styles.linkText}>
               Sign up for free
             </Link>
           </p>
         ) : (
           <p className={styles.link}>
             Already have an account?{" "}
-            <Link href="/signin" passHref>
+            <Link href="/signin" passHref className={styles.linkText}>
               Sign in
             </Link>
           </p>
