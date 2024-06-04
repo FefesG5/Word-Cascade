@@ -1,8 +1,9 @@
 .container {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 4rem;
 }
 
 .card {
@@ -82,13 +83,13 @@
   color: #6b7280;
 }
 
-.link a {
+.linkText {
   color: #6366f1;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.link a:hover {
+.linkText:hover {
   color: #4f46e5;
 }
