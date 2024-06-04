@@ -22,7 +22,7 @@ const Dashboard = () => {
     <div>
       <h1>Welcome to the Dashboard</h1>
       <p>User: {user.email}</p>
-      <SignOutButton/>
+      <SignOutButton />
       {/* Add additional dashboard components */}
     </div>
   );
