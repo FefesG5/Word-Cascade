@@ -15,7 +15,10 @@
   --signin-btn-hover-bg-color: #1669c1;
   --signin-input-bg-color: #f7f7f7;
   --signin-input-border-color: #cccccc;
-  --signin-text-color: #f0f0f0;
+  --signin-text-color: #1a1a1a;
+
+  --link-text-color: #007bff;
+  --link-text-hover-color: #0056b3;
 
   --error-message-text-color: #d32f2f;
 }
@@ -34,6 +37,9 @@
   --signin-input-bg-color: #455a64;
   --signin-input-border-color: #4f5b62;
   --signin-text-color: #eceff1;
+
+  --link-text-color: #80bdff;
+  --link-text-hover-color: #339af0;
 
   --error-message-text-color: #d74444;
 }
