@@ -11,7 +11,6 @@
   min-height: 30rem;
   background-color: var(--signin-container-bg-color);
   padding: 3rem;
-  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -32,7 +31,7 @@
   display: block;
   font-size: 1.5rem;
   font-weight: 500;
-  color: #4b5563;
+  color: var(--body-text-color);
   margin-bottom: 0.5rem;
 }
 
@@ -47,6 +46,8 @@
   outline: none;
   transition: border-color 0.2s;
   font-size: 1.2rem;
+  color: var(--signin-text-color);
+  background-color: var(--signin-input-bg-color);
 }
 
 .input:focus {
@@ -63,7 +64,7 @@
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 0.375rem;
-  background-color: #6366f1;
+  background-color: var(--signin-btn-bg-color);
   color: white;
   font-weight: 500;
   cursor: pointer;
@@ -72,32 +73,32 @@
 }
 
 .button:hover {
-  background-color: #4f46e5;
+  background-color: var(--signin-btn-hover-bg-color);
 }
 
 .error {
   margin-top: 1rem;
   text-align: center;
   font-size: 1.3rem;
-  color: #ef4444;
+  color: var(--error-message-text-color);
 }
 
-.link {
+.formSwitchText {
   margin-top: 1.5rem;
   text-align: center;
   font-size: 1.3rem;
-  color: #6b7280;
+  color: var(--signin-text-color); /* Use CSS variable for consistency */
 }
 
-.linkText {
-  color: #6366f1;
+.formSwitchLink {
+  color: var(--link-text-hover-color); /* Use CSS variable for consistency */
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.linkText:hover {
-  color: #4f46e5;
+.formSwitchLink:hover {
+  color: var(--link-text-hover-color);
 }
 
 /* Responsive Design for Smaller Screens */
@@ -138,12 +139,12 @@
     font-size: 1rem;
   }
 
-  .link {
+  .formSwitchText {
     margin-top: 1rem;
     font-size: 0.9rem;
   }
 
-  .linkText {
+  .formSwitchLink {
     font-size: 0.9rem;
   }
 }
