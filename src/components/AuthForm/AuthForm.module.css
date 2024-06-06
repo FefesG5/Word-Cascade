@@ -4,17 +4,16 @@
   align-items: flex-start;
   justify-content: center;
   padding-top: 4rem;
-  /* padding-bottom: 4rem; */
 }
 
 .card {
   width: 35rem;
-  min-height: 30rem; /* Set a minimum height for visual balance */
+  min-height: 30rem;
   background-color: var(--signin-container-bg-color);
   padding: 3rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .title {
@@ -99,4 +98,52 @@
 
 .linkText:hover {
   color: #4f46e5;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .inputGroup {
+    margin-bottom: 1.25rem;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .input {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .buttonContainer {
+    margin-top: 1.3rem;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .error {
+    font-size: 1rem;
+  }
+
+  .link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .linkText {
+    font-size: 0.9rem;
+  }
 }
