@@ -95,16 +95,16 @@ const AuthForm = ({ mode }: AuthFormProps) => {
           {error && <p className={styles.error}>{error}</p>}
         </form>
         {mode === "signIn" ? (
-          <p className={styles.link}>
+          <p className={styles.formSwitchText}>
             Don&apos;t have an account?{" "}
-            <Link href="/signup" passHref className={styles.linkText}>
+            <Link href="/signup" passHref className={styles.formSwitchLink}>
               Sign up for free
             </Link>
           </p>
         ) : (
-          <p className={styles.link}>
+          <p className={styles.formSwitchText}>
             Already have an account?{" "}
-            <Link href="/signin" passHref className={styles.linkText}>
+            <Link href="/signin" passHref className={styles.formSwitchLink}>
               Sign in
             </Link>
           </p>
