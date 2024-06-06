@@ -20,7 +20,7 @@ test.describe("Home Page Tests", () => {
   });
 
   test("Home Page has the correct document title", async ({ page }) => {
-    await expect(page).toHaveTitle(/Create Next App/i);
+    await expect(page).toHaveTitle(/Word Cascade/i);
   });
 
   test("Home Page displays the correct h1 heading", async ({ page }) => {
