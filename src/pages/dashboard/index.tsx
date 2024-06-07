@@ -1,7 +1,7 @@
-// pages/dashboard/index.tsx
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Spinner from "@/components/Spinner/Spinner";
 import SignOutButton from "@/components/SignOutButton/SignOutButton";
 
 const Dashboard = () => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
   }, [user, router]);
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   return (
