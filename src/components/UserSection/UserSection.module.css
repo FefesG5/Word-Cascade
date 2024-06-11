@@ -14,7 +14,6 @@
 .profileImage {
   border-radius: 50%;
   object-fit: contain;
-  margin-bottom: 1rem;
 }
 
 .userName {
@@ -25,5 +24,5 @@
 .userEmail {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: var(signin-text-color);
+  color: var(--signin-text-color);
 }
