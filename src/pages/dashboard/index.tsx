@@ -2,27 +2,26 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Spinner from "@/components/Spinner/Spinner";
-import SignOutButton from "@/components/SignOutButton/SignOutButton";
+import UserSection from "@/components/UserSection/UserSection";
 
 const Dashboard = () => {
   const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
+    if (!user || !user.email) {
       router.push("/signin");
     }
   }, [user, router]);
 
-  if (!user) {
+  if (!user || !user.email) {
     return <Spinner />;
   }
 
   return (
     <div>
       <h1>Welcome to the Dashboard</h1>
-      <p>User: {user.email}</p>
-      <SignOutButton />
+      <UserSection user={user} />
       {/* Add additional dashboard components */}
     </div>
   );
