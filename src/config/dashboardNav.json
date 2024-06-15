@@ -1,0 +1,10 @@
+[
+  {
+    "href": "/dashboard",
+    "label": "Dashboard"
+  },
+  {
+    "href": "/dashboard/word-cascade",
+    "label": "Word Cascade"
+  }
+]
