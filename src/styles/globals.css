@@ -17,6 +17,8 @@
   --signin-input-border-color: #cccccc;
   --signin-text-color: #1a1a1a;
 
+  --dashboard-nav-bg-color: #d3cbb6;
+
   --link-text-color: #007bff;
   --link-text-hover-color: #0056b3;
 
@@ -37,6 +39,8 @@
   --signin-input-bg-color: #455a64;
   --signin-input-border-color: #4f5b62;
   --signin-text-color: #eceff1;
+
+  --dashboard-nav-bg-color: #37474f;
 
   --link-text-color: #80bdff;
   --link-text-hover-color: #339af0;
