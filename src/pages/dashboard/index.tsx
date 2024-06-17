@@ -1,30 +1,17 @@
-import { useAuth } from "@/contexts/AuthContext";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import Spinner from "@/components/Spinner/Spinner";
+import withAuth from "@/components/WithAuth/WithAuth";
 import UserSection from "@/components/UserSection/UserSection";
+import DashboardNav from "@/components/DashboardNav/DashboardNav";
+import { useAuth } from "@/contexts/AuthContext";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const { user } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!user || !user.email) {
-      router.push("/signin");
-    }
-  }, [user, router]);
-
-  if (!user || !user.email) {
-    return <Spinner />;
-  }
-
   return (
     <div>
+      <DashboardNav />
       <h1>Welcome to the Dashboard</h1>
-      <UserSection user={user} />
-      {/* Add additional dashboard components */}
+      {user && <UserSection user={user} />} {/* Pass the user to UserSection */}
     </div>
   );
 };
 
-export default Dashboard;
+export default withAuth(Dashboard);
