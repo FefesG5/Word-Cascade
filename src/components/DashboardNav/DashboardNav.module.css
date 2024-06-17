@@ -1,0 +1,27 @@
+.navContainer {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navListItem {
+  color: #fff;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #ddd;
+}
