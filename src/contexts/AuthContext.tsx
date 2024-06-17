@@ -1,4 +1,3 @@
-// contexts/AuthContext.tsx
 import {
   createContext,
   useContext,
@@ -11,6 +10,7 @@ import { User } from "@supabase/supabase-js";
 
 interface AuthContextProps {
   user: User | null;
+  loading: boolean;
   signUp: (email: string, password: string) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
@@ -18,8 +18,21 @@ interface AuthContextProps {
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -27,16 +40,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (error) {
         console.error("Error fetching session:", error.message);
       } else {
-        console.log("Fetched session data:", data);
         setUser(data.session?.user || null);
       }
+      setLoading(false);
     };
 
     fetchUser();
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (_event, session) => {
-        console.log("Auth state change detected:", session);
         setUser(session?.user || null);
       },
     );
@@ -47,12 +59,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signUp = async (email: string, password: string) => {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) throw error;
-    console.log("Signed up user data:", data);
     setUser(data.user);
   };
 
@@ -62,7 +70,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       password,
     });
     if (error) throw error;
-    console.log("Signed in user data:", data);
     setUser(data.user);
   };
 
@@ -73,16 +80,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, loading, signUp, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
 };
