@@ -1,16 +1,20 @@
 import withAuth from "@/components/WithAuth/WithAuth";
-import UserSection from "@/components/UserSection/UserSection";
 import DashboardNav from "@/components/DashboardNav/DashboardNav";
-import { useAuth } from "@/contexts/AuthContext";
 import styles from "./Dashboard.module.css";
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
   return (
-    <div>
-      <DashboardNav />
-      <h1>Welcome to the Dashboard</h1>
-      {user && <UserSection user={user} />} {/* Pass the user to UserSection */}
+    <div className={styles.dashboardContainer}>
+      <aside className={styles.sidebar}>
+        <DashboardNav />
+      </aside>
+      <main className={styles.mainContent}>
+        <h1 className={styles.dashboardHeader}>Welcome to the Dashboard</h1>
+        <div className={styles.content}>
+          <h2>Main Section</h2>
+          {/* Add your main content here */}
+        </div>
+      </main>
     </div>
   );
 };
