@@ -1,6 +1,8 @@
 import Link from "next/link";
 import dashboardNavigation from "@/config/dashboardNav.json";
 import styles from "./DashboardNav.module.css";
+import { useAuth } from "@/contexts/AuthContext";
+import UserSection from "@/components/UserSection/UserSection";
 
 interface NavItem {
   href: string;
@@ -8,6 +10,7 @@ interface NavItem {
 }
 
 const DashboardNav: React.FC = () => {
+  const { user } = useAuth();
   return (
     <nav className={styles.navContainer}>
       <ul className={styles.navList}>
@@ -19,6 +22,7 @@ const DashboardNav: React.FC = () => {
           </li>
         ))}
       </ul>
+      {user && <UserSection user={user} />} {/* Pass the user to UserSection */}
     </nav>
   );
 };
