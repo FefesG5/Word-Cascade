@@ -1,6 +1,6 @@
 .navContainer {
   background: var(--dashboard-nav-bg-color);
-  padding: 1rem;
+  padding: 0.9rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,8 +10,7 @@
 .navList {
   list-style: none;
   display: flex;
-  flex-direction: column; /* Align items vertically */
-  gap: 1rem;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -26,13 +25,10 @@
   text-decoration: none;
   transition: color 0.3s;
   display: block;
-  padding: 0.5rem;
+  margin: 1rem;
 }
 
 .navLink:hover {
   color: var(--link-text-hover-color);
-  background-color: var(
-    --link-hover-bg-color
-  ); /* Optional: Add a hover background color */
-  border-radius: 4px; /* Optional: Add some rounding */
+  background-color: var(--link-hover-bg-color);
 }
