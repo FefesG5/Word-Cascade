@@ -22,7 +22,7 @@ const DashboardNav: React.FC = () => {
           </li>
         ))}
       </ul>
-      {user && <UserSection user={user} />} {/* Pass the user to UserSection */}
+      {user && <UserSection user={user} />}
     </nav>
   );
 };
