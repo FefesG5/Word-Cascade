@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-  width: 300px;
+  width: 18%;
   background-color: var(--sidebar-bg-color);
   display: flex;
   flex-direction: column;
@@ -28,4 +28,27 @@
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 20%;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    justify-content: space-between;
+  }
+
+  .mainContent {
+    flex: 1;
+    padding: 1rem;
+  }
 }
