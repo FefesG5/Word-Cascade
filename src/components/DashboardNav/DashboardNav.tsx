@@ -15,6 +15,7 @@ const DashboardNav: React.FC = () => {
   const { user } = useAuth();
   return (
     <nav className={styles.navContainer}>
+      {user && <UserSection user={user} />}
       <ul className={styles.navList}>
         {dashboardNavigation.map((item: NavItem) => (
           <li key={item.href} className={styles.navListItem}>
@@ -31,7 +32,6 @@ const DashboardNav: React.FC = () => {
           </li>
         ))}
       </ul>
-      {user && <UserSection user={user} />}
     </nav>
   );
 };
