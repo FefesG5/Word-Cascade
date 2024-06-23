@@ -1,12 +1,13 @@
 .navContainer {
   background: var(--dashboard-nav-bg-color);
   width: 100%;
-  height: 85%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 1rem;
+  justify-content: flex-start;
+  padding: 1rem 0;
+  box-sizing: border-box;
 }
 
 .navList {
@@ -16,6 +17,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  flex-grow: 1;
 }
 
 .navListItem {
@@ -60,6 +62,6 @@
   }
 
   .navLabel {
-    display: none; /* Hide labels on small screens */
+    display: none;
   }
 }
