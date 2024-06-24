@@ -1,0 +1,41 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 300px;
+}
+
+.profileImage {
+  border-radius: 50%;
+  background-color: pink;
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.userName {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: var(--signin-text-color);
+  margin-bottom: 0.5rem;
+}
