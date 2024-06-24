@@ -9,6 +9,7 @@
   border-radius: 8px;
   width: 90%;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .profileImage {
@@ -28,4 +29,24 @@
   font-size: 0.875rem;
   color: var(--signin-text-color);
   margin-bottom: 0.5rem;
+}
+
+.signOutButton {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .profileImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .userName,
+  .userEmail {
+    display: none;
+  }
+
+  .signOutButton {
+    display: none;
+  }
 }
