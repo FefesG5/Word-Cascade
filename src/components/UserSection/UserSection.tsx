@@ -1,6 +1,8 @@
+import { useState } from "react";
 import styles from "./UserSection.module.css";
-import SignOutButton from "../SignOutButton/SignOutButton";
 import Image from "next/image";
+import UserModal from "../UserModal/UserModal";
+import SignOutButton from "../SignOutButton/SignOutButton";
 
 interface User {
   displayName?: string;
@@ -13,19 +15,34 @@ interface UserSectionProps {
 }
 
 const UserSection: React.FC<UserSectionProps> = ({ user }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleIconClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className={styles.userSection}>
-      <Image
-        src={user.photoURL || "/person-outline.svg"}
-        alt={`${user.displayName || "User"}'s profile`}
-        width={50}
-        height={50}
-        className={styles.profileImage}
-      />
-      <h3 className={styles.userName}>{user.displayName || "User"}</h3>
-      <p className={styles.userEmail}>{user.email || "No email provided"}</p>
-      <SignOutButton />
-    </div>
+    <>
+      <div className={styles.userSection} onClick={handleIconClick}>
+        <Image
+          src={user.photoURL || "/person-outline.svg"}
+          alt={`${user.displayName || "User"}'s profile`}
+          width={50}
+          height={50}
+          className={styles.profileImage}
+        />
+        <h3 className={styles.userName}>{user.displayName || "User"}</h3>
+        <p className={styles.userEmail}>{user.email || "No email provided"}</p>
+        <div className={styles.signOutButton}>
+          <SignOutButton />
+        </div>
+      </div>
+      {isModalOpen && <UserModal user={user} onClose={handleCloseModal} />}
+    </>
   );
 };
 
