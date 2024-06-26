@@ -2,11 +2,11 @@
   {
     "href": "/dashboard",
     "label": "Dashboard",
-    "icon": "dashboard_icon.svg"
+    "icon": "/dashboard_icon.svg"
   },
   {
     "href": "/dashboard/word-cascade",
     "label": "Word Cascade",
-    "icon": "keyboard_icon.svg"
+    "icon": "/keyboard_icon.svg"
   }
 ]
