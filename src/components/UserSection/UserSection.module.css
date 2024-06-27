@@ -13,7 +13,7 @@
 
 .profileImage {
   border-radius: 50%;
-  background-color: pink;
+  background-color: var(--profile-image-bg-color);
   object-fit: cover;
   width: 50px;
   height: 50px;
