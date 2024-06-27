@@ -17,8 +17,10 @@ interface UserSectionProps {
 const UserSection: React.FC<UserSectionProps> = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleIconClick = () => {
-    setIsModalOpen(true);
+  const handleIconClick = (event: React.MouseEvent) => {
+    if ((event.target as Element).classList.contains(styles.profileImage)) {
+      setIsModalOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
