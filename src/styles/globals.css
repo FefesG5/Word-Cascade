@@ -23,6 +23,8 @@
   --link-text-hover-color: #0056b3;
 
   --error-message-text-color: #d32f2f;
+
+  --profile-image-bg-color: #ffb347;
 }
 
 [data-theme="dark"] {
@@ -46,6 +48,8 @@
   --link-text-hover-color: #339af0;
 
   --error-message-text-color: #d74444;
+
+  --profile-image-bg-color: #ff8c00;
 }
 
 body {
