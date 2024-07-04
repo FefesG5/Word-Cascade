@@ -1,3 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .heading {
-  font-size: 4rem;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+}
+
+.mainContent {
+  max-width: 800px;
+  width: 100%;
+}
+
+.aboutSection,
+.featuresSection,
+.callToActionSection {
+  margin-bottom: 40px;
+}
+
+.sectionHeading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.featuresList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.featureItem {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.callToActionSection {
+  text-align: center;
+}
+
+.startButton {
+  background-color: var(--signin-btn-bg-color);
+  color: var(--signin-text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.startButton:hover {
+  background-color: var(--signin-btn-hover-bg-color);
 }
