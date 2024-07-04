@@ -28,7 +28,6 @@ export default function Home() {
             </li>
             <li className={styles.featureItem}>Expand vocabulary</li>
             <li className={styles.featureItem}>Fun and interactive gameplay</li>
-            <li className={styles.featureItem}>Progress tracking</li>
           </ul>
         </section>
 
